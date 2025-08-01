@@ -1,0 +1,506 @@
+1. Mention all data-types in a single program with their output ---
+
+# Mention All Data Types in a Single Program
+
+# Demonstrating different data types
+a = 10                  # Integer
+b = 3.14                # Float
+c = "Python"            # String
+d = True                # Boolean
+e = [1, 2, 3]           # List
+f = (4, 5, 6)           # Tuple
+g = {1: "one", 2: "two"}  # Dictionary
+h = {7, 8, 9}           # Set
+i = None                # NoneType
+
+print(type(a), a)
+print(type(b), b)
+print(type(c), c)
+print(type(d), d)
+print(type(e), e)
+print(type(f), f)
+print(type(g), g)
+print(type(h), h)
+print(type(i), i)
+
+
+2. Assignments and Reassignments values to a variable ---
+
+# Assignments and Reassignments of Values
+
+x = 5       # Initial assignment
+print("Initial x:", x)
+
+x = 10      # Reassignment
+print("Reassigned x:", x)
+
+
+3. Deleting a variable, swapping values of a variable ---
+
+# Deleting a Variable & Swapping Values
+
+# Swapping values
+a = 1
+b = 2
+print("Before swap:", a, b)
+
+a, b = b, a  # Swapping
+print("After swap:", a, b)
+
+# Deleting variable
+x = 100
+print("x =", x)
+del x
+
+# print(x)  # This will give an error because x is deleted
+
+
+4. Multiple values assignment ---
+
+# Multiple Values Assignment
+
+a, b, c = 10, 20, 30
+print(a, b, c)
+
+# Same value to multiple variables
+x = y = z = 50
+print(x, y, z)
+
+
+5. Slicing of Strings - 0:5 , 3:8 and 7:12    --
+
+# Slicing of Strings
+
+text = "PythonProgramming"
+
+print("text[0:5] =", text[0:5])   # Pytho
+print("text[3:8] =", text[3:8])   # honPr
+print("text[7:12] =", text[7:12]) # rogra
+
+
+6. find out length of string , upper and lower case using len() , upper() and lower()
+
+# String Length and Case Conversion
+
+s = "HelloPython"
+
+print("Length:", len(s))       # 11
+print("Uppercase:", s.upper()) # HELLOPYTHON
+print("Lowercase:", s.lower()) # hellopython
+
+
+
+7.  Write a program to create two lists of same data types and use concatenation 
+
+# Create Two Lists of Same Data Types & Concatenate
+
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+combined = list1 + list2
+print("Concatenated List:", combined)
+
+
+8. Write a program to create two lists of different data types and use concatenation 
+
+# Create Two Lists of Different Data Types & Concatenate
+
+list1 = [1, 2, 3]          # Integers
+list2 = ["a", "b", "c"]    # Strings
+
+combined = list1 + list2
+print("Mixed List:", combined)
+
+
+9.  Write a program to reverse elements in a list
+
+# Reverse Elements in a List
+
+my_list = [10, 20, 30, 40]
+print("Original:", my_list)
+
+reversed_list = my_list[::-1]
+print("Reversed:", reversed_list)
+
+
+10.  Write a program to create a nested list and access few elements from it.
+
+# Create a Nested List and Access Elements
+
+nested = [[1, 2, 3], ["a", "b", "c"], [10.1, 20.2]]
+
+print(nested[0][1])  # 2
+print(nested[1][2])  # 'c'
+print(nested[2][0])  # 10.1
+
+
+11. Write a program to sort all the elements in a list.
+
+# Sort All Elements in a List
+
+numbers = [4, 1, 9, 2, 6]
+numbers.sort()
+print("Sorted List:", numbers)
+
+
+12. use string methods - split(), join() and replace() on a string
+
+# Use String Methods - split(), join(), replace()
+
+text = "Python is fun"
+
+# split
+words = text.split()
+print("Split:", words)
+
+# join
+joined = "-".join(words)
+print("Joined:", joined)
+
+# replace
+replaced = text.replace("fun", "powerful")
+print("Replaced:", replaced)
+
+
+13. Write a program to create sum of elements in a list
+
+# Sum of Elements in a List
+
+numbers = [10, 20, 30, 40]
+total = sum(numbers)
+print("Sum:", total)
+
+
+14. Create strings - single quotes, double quotes and multi-line strings (triple-quotes)
+
+# Create Strings Using Single, Double, Triple Quotes
+
+single_quote = 'Hello'
+double_quote = "World"
+multi_line = '''This is
+a multi-line
+string'''
+
+print(single_quote)
+print(double_quote)
+print(multi_line)
+
+
+
+15. Create two strings and use concatenation on them ---
+
+# Concatenate Two Strings
+
+first = "Hello"
+second = "World"
+
+result = first + " " + second
+print("Concatenated String:", result)
+
+
+16. Write a program to use all arithmetic operators for addition, subtraction, multiplication, Divison, Modulus and exponent ---
+
+# Use All Arithmetic Operators
+
+a = 10
+b = 3
+
+print("Addition:", a + b)
+print("Subtraction:", a - b)
+print("Multiplication:", a * b)
+print("Division:", a / b)
+print("Modulus:", a % b)
+print("Exponent:", a ** b)  # 10^3 = 1000
+
+
+17. Write a program for comparison, logical and assignments operators ---
+
+# Comparison, Logical & Assignment Operators
+
+a = 10
+b = 20
+
+# Comparison
+print("a == b:", a == b)
+print("a != b:", a != b)
+
+# Logical
+print("a < b and b > 15:", a < b and b > 15)
+print("a > b or b > 10:", a > b or b > 10)
+print("not(a > b):", not(a > b))
+
+# Assignment
+x = 5
+x += 3  # x = x + 3
+print("x after += 3:", x)
+
+
+18. Check if a Number is Positive, Negative, or Zero ---
+
+# Check if a Number is Positive, Negative, or Zero
+
+num = int(input("Enter a number: "))
+
+if num > 0:
+    print("Positive")
+elif num < 0:
+    print("Negative")
+else:
+    print("Zero")
+
+
+19. Check if a Number is Even or Odd ---
+
+# Check if a Number is Even or Odd
+
+num = int(input("Enter a number: "))
+
+if num % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+
+20. Find the Largest Number Among Three Numbers --
+
+# Find the Largest Among Three Numbers
+
+a = int(input("Enter first: "))
+b = int(input("Enter second: "))
+c = int(input("Enter third: "))
+
+if a >= b and a >= c:
+    print("Largest:", a)
+elif b >= a and b >= c:
+    print("Largest:", b)
+else:
+    print("Largest:", c)
+
+
+21. Check if a Year is a Leap Year or Not --
+
+# Check if a Year is a Leap Year
+
+year = int(input("Enter a year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("Leap Year")
+else:
+    print("Not a Leap Year")
+
+
+22. Find the Factorial of a Number ---
+
+# Find Factorial of a Number
+
+num = int(input("Enter a number: "))
+fact = 1
+
+for i in range(1, num + 1):
+    fact *= i
+
+print("Factorial:", fact)
+
+
+23. Find the type of triangle ---
+
+# Find the Type of Triangle
+
+a = int(input("Enter side 1: "))
+b = int(input("Enter side 2: "))
+c = int(input("Enter side 3: "))
+
+if a == b == c:
+    print("Equilateral Triangle")
+elif a == b or b == c or a == c:
+    print("Isosceles Triangle")
+else:
+    print("Scalene Triangle")
+
+
+
+24. Convert seconds  into hour  -- using floor division (//) and modulus operator (%)
+
+(output format like 2h 23min 45 sec)
+
+
+25. Convert a percantage (numeric) grade to letter grade
+
+26. Write a program to print all even numbers between 1 and 50 using a for loop.
+
+27. Write a program to print the reverse of a given number using a while loop.
+
+28. Develop a program that calculates the factorial of a number using a while loop.
+
+29.  Write a program to find the sum of all digits in a given number using a while loop. ---
+
+# Sum of Digits in a Number (while loop)
+
+num = int(input("Enter a number: "))
+total = 0
+
+while num > 0:
+    digit = num % 10
+    total += digit
+    num //= 10
+
+print("Sum of digits:", total)
+
+
+30. Develop a program that counts the number of vowels in a given string using a for loop and continue statement.
+
+31. Write a program to skip Even Numbers and Print Numbers Until 10
+
+32. Create a program to print all numbers between 1 and 100 that are not divisible by 2 or 3 using a for loop and continue statement.
+
+33. Write a program to print the reverse of a given number using a while loop.
+
+==============================================================================================================
+
+
+Functions in Python :
+
+
+Exercise 1: Create a function in Python --
+
+# Create a function in Python
+
+def greet():
+    print("Hello from a function!")
+
+greet()
+
+
+# Simple Example with an Argument:
+
+
+def greet(name):         # ← 'name' is a parameter
+    print("Hello", name)
+
+greet("Aditya")          # ← "Aditya" is the argument
+
+
+
+Exercise 2: Create a function with variable length of arguments
+
+# Function with Variable-Length Arguments
+
+def print_names(*names):
+    for name in names:
+        print(name)
+
+print_names("Alice", "Bob", "Charlie")
+
+
+Exercise 3: Return multiple values from a function
+
+# Return Multiple Values from a Function
+
+def calculate(a, b):
+    return a + b, a * b
+
+add, multiply = calculate(5, 3)
+print("Sum:", add)
+print("Product:", multiply)
+
+
+Exercise 4: Create a function with a default argument
+
+# Function with Default Argument
+
+def greet(name="Guest"):
+    print("Hello,", name)
+
+greet()
+greet("Aditya")
+
+
+Exercise 5: Create an inner function to calculate the addition in the following way
+
+# Inner Function to Calculate Addition
+
+def outer(a, b):
+    def inner(x, y):
+        return x + y
+    result = inner(a, b)
+    print("Addition:", result)
+
+outer(10, 20)
+
+
+
+
+
+
+
+
+
+
+Project 1: Mini Calculator (Menu-Driven)
+
+Topics Covered:
+
+Functions (with default & variable arguments)
+
+Conditional statements
+
+Arithmetic operators
+
+Loops (optional for repeated usage)
+
+Description:
+Build a calculator with options for:
+
+1. Addition
+
+2. Subtraction
+
+3. Multiplication
+
+4. Division
+
+5. Exponent
+
+6. Modulus
+
+(Keep the 7th option as Exit)
+
+Let the user choose an operation from a menu and input two numbers.
+
+Goal: Allow repeated calculations until the user exits.
+
+
+
+Guide to Create  :
+
+1. You can create 6-7 functions for each arithmetic operation ..
+
+2. Use while Loop to print out menu Options
+
+3. Utilise if else options to provide resulted operation based on choice ...
+
+
+===================================================================================================
+
+
+Project 2:  ATM Simulation (Menu-Driven)
+
+Features:
+
+Login with PIN
+
+Withdraw, deposit, check balance
+
+Simple authentication
+
+
+
+Concepts Used:
+
+While loops
+
+Conditions
+
+Functions with parameters
+
+Simple state management
