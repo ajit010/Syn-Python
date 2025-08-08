@@ -1,0 +1,415 @@
+
+DAY 6 :
+
+IAM Roles --
+
+ec2  connect to s3
+
+ec2 machine server -- attach role (s3 access) 
+
+
+Create aws account
+
+IAM - create a new user
+
+Attach only ec2 read only access 
+
+Sign in to new windows to access as new acccount
+
+try to access services like IAM and error will come
+
+Now modify permissions and again check ...
+
+Create a zero spend budget in Budgets in AWS
+
+
+ec2 - server :
+
+1. Select t2/t3 micro instance
+
+2, Select Ubuntu 22.04 as your OS
+
+3. Stoarge - 8 gb (default)
+
+4. Select ssh key-pair .. (create)
+
+5. SSH into cmd using
+
+ssh -i "my-keypair.pem" user@public-ip ....
+
+exxample :   ssh -i ajitkey.pem ubuntu@234.22.12.20
+
+Next part - install mysql-server
+
+(connect your python prog with mysql server(remote db connectivity))
+
+sudo apt update -y
+
+sudo apt install mysql-server
+
+mysql --version
+
+sudo mysql -u root -p
+
+Create databases -
+
+(Check remote connection from local using ) -- using cloudshell :
+
+mysql -u root -p -h "public-ip-vm"
+
+
+
+
+
+
+
+
+SELECT host, user FROM mysql.user;
+
+ROOT  - %
+
+3. VM -- SSH -- installed mysql -- mysql root user+pswd ---  mysql db
+
+4. VM -- accept the traafic port 3306 (firewall)
+
+5. Making changes in mysql config file -- sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+  (change the bind address from localhost to 0.0.0.0)
+
+6. Restart mysql-server after making change sin the config file -- sudo systemctl restart mysql
+
+7. If you want to create a new user and work on, you can use follow :
+
+CREATE USER 'ajit'@'%' IDENTIFIED BY 'ajit1234';
+GRANT ALL PRIVILEGES ON *.* TO 'ajit'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+
+OR
+
+8. If you want to use root user to create db and inser data, you need to update :
+
+UPDATE mysql.user SET host = '%' WHERE user = 'root' AND host = 'localhost';
+FLUSH PRIVILEGES;
+
+
+9. If you wan to check/test Remote Mysql-server connection from windows cmd or cloudshell :
+
+>> mysql -u root -p -h <your_mysql_ip> -P 3306
+
+10. Execute the python program to insert data in tables to your db on remote mysql-server ..
+
+Use these commands if remote connection isn't working :
+
+(Inside mysql shell in VM)
+
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
+FLUSH PRIVILEGES;
+
+
+
+=========================================================================================================
+
+Use Cloudtrail to view activity :
+
+Use EBS to create a second volume of 10 gb and attach it to running instance ..
+
+==========================================================================================================
+
+Data Structure Operations :
+
+1. Basic List Operations
+
+fruits = ['apple', 'banana', 'cherry', 'date', 'elderberry']
+
+fruits.append('fig')
+fruits.remove('banana')
+fruits.sort()
+fruits.reverse()
+print(fruits)
+
+
+2. Tuple Unpacking and Indexing
+
+employee = ('John', 'HR', 35000)
+name, dept, salary = employee
+print(f"Name: {name}, Salary: {salary}")
+
+
+3. #  Set Operations
+
+section_a = {1, 2, 3, 4, 5}
+section_b = {4, 5, 6, 7}
+common = section_a.intersection(section_b)
+print("Common Students:", common)
+
+
+4. # Dictionary CRUD
+
+employees = {101: 'Alice', 102: 'Bob'}
+employees[103] = 'Charlie'  # Add
+employees[102] = 'Robert'   # Update
+del employees[101]          # Delete
+print(employees)
+
+
+5. # Nested List – Matrix Input
+
+matrix = []
+for i in range(3):
+    row = []
+    for j in range(3):
+        val = int(input(f"Enter value for [{i}][{j}]: "))
+        row.append(val)
+    matrix.append(row)
+
+for row in matrix:
+    print(row)
+
+
+6. # Dictionary of Lists
+
+students = {
+    'Ajit': ['Math', 'Science'],
+    'Ravi': ['English', 'History']
+}
+print(students['Ajit'])
+
+
+7. # Search in Dictionary
+
+students = {'Ajit': 23, 'Ravi': 24}
+search_name = input("Enter student name: ")
+if search_name in students:
+    print("Age:", students[search_name])
+else:
+    print("Student not found.")
+
+
+
+8. # Student Management System – Add Student
+
+students = {}
+roll = int(input("Enter roll number: "))
+name = input("Enter name: ")
+age = int(input("Enter age: "))
+students[roll] = {'name': name, 'age': age}
+print(students)
+
+# Student Management – Update Student
+
+roll = int(input("Enter roll to update: "))
+if roll in students:
+    students[roll]['name'] = input("Enter new name: ")
+    students[roll]['age'] = int(input("Enter new age: "))
+else:
+    print("Student not found.")
+
+# Student Management – Delete Student
+
+roll = int(input("Enter roll to delete: "))
+if roll in students:
+    del students[roll]
+    print("Deleted successfully.")
+else:
+    print("Student not found.")
+
+
+
+9. # Nested Dictionary – Attendance Tracker
+
+attendance = {
+    'Ajit': {'2025-08-01': 'Present', '2025-08-02': 'Absent'},
+    'Ravi': {'2025-08-01': 'Absent'}
+}
+print(attendance['Ajit']['2025-08-01'])  # Output: Present
+
+
+10. # List CRUD
+
+# Perform CRUD on a list of student names.
+
+students = ['Ajit', 'Ravi', 'Kiran']
+students.append('Neha')       # Create
+print(students[1])            # Read
+students[2] = 'Karthik'       # Update
+students.remove('Ajit')       # Delete
+print(students)
+
+# Tuple Operations
+
+# Unpack tuple and access elements.
+
+student = ('Ajit', 21, 'B.Tech')
+name, age, course = student
+print(f"Name: {name}, Course: {course}")
+
+
+# Set CRUD
+
+# Maintain unique set of student IDs.
+
+student_ids = {101, 102, 103}
+student_ids.add(104)
+student_ids.discard(102)
+print(student_ids)
+
+
+# Dictionary CRUD
+
+# Create and manage dictionary of student name and age.
+
+students = {'Ajit': 21, 'Ravi': 22}
+students['Neha'] = 20               # Create
+print(students['Ravi'])             # Read
+students['Ajit'] = 23               # Update
+del students['Neha']                # Delete
+print(students)
+
+
+# List of Dictionaries
+
+# Store multiple student details.
+
+students = [
+    {'name': 'Ajit', 'age': 21},
+    {'name': 'Ravi', 'age': 22}
+]
+
+for student in students:
+    print(f"Name: {student['name']}, Age: {student['age']}")
+
+
+
+
+
+# Dictionary of Lists
+
+# Store students and their enrolled courses.
+
+enrollments = {
+    'Ajit': ['Math', 'Science'],
+    'Ravi': ['English', 'History']
+}
+print(enrollments['Ajit'])
+
+
+
+# Dictionary of Dictionaries
+
+# Store full profile of each student.
+
+students = {
+    101: {'name': 'Ajit', 'age': 21},
+    102: {'name': 'Ravi', 'age': 22}
+}
+print(students[101]['name'])
+
+
+
+# Search in Dictionary
+
+
+# Search for student by ID.
+
+
+roll = int(input("Enter roll number: "))
+if roll in students:
+    print("Student Found:", students[roll])
+else:
+    print("Not Found")
+
+
+
+
+
+# Update Student Info
+
+# Modify name or age by student ID.
+
+roll = int(input("Enter roll number: "))
+if roll in students:
+    students[roll]['name'] = input("Enter new name: ")
+    students[roll]['age'] = int(input("Enter new age: "))
+    print("Updated:", students[roll])
+else:
+    print("Student not found.")
+
+
+
+
+# Delete Student
+
+# Remove student record by ID.
+
+roll = int(input("Enter roll number to delete: "))
+if roll in students:
+    del students[roll]
+    print("Deleted successfully.")
+else:
+    print("Student not found.")
+
+
+
+# Display All Students
+
+# Display all students in a tabular format.
+
+
+print("Roll\tName\tAge")
+for roll, details in students.items():
+    print(f"{roll}\t{details['name']}\t{details['age']}")
+
+
+
+# Student Management System (Mini Project)
+
+# Create a menu-driven app to:
+
+# Add, Search, Update, Delete and Display student
+
+students = {}
+
+def add_student():
+    roll = int(input("Roll No: "))
+    name = input("Name: ")
+    age = int(input("Age: "))
+    students[roll] = {'name': name, 'age': age}
+
+def display_students():
+    print("Roll\tName\tAge")
+    for r, d in students.items():
+        print(f"{r}\t{d['name']}\t{d['age']}")
+
+def update_student():
+    roll = int(input("Roll No to update: "))
+    if roll in students:
+        students[roll]['name'] = input("New Name: ")
+        students[roll]['age'] = int(input("New Age: "))
+    else:
+        print("Not found.")
+
+def delete_student():
+    roll = int(input("Roll No to delete: "))
+    if roll in students:
+        del students[roll]
+    else:
+        print("Not found.")
+
+while True:
+    print("\n1. Add 2. Display 3. Update 4. Delete 5. Exit")
+    choice = int(input("Enter choice: "))
+    if choice == 1:
+        add_student()
+    elif choice == 2:
+        display_students()
+    elif choice == 3:
+        update_student()
+    elif choice == 4:
+        delete_student()
+    elif choice == 5:
+        break
+
+
+
+======================================================================================================
