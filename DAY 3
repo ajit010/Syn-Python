@@ -1,1 +1,593 @@
+1.	Temperature Converter: Write a Python program that converts temperature from Celsius to Fahrenheit and vice versa. Use a custom module to handle the conversion functions.
+
+temp_converter module -- (For reference)
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+
+Write main.py 
+
+# Temperature Converter using Custom Module
+
+import temp_converter
+
+choice = input("Convert:\n1. Celsius to Fahrenheit\n2. Fahrenheit to Celsius\nChoose (1/2): ")
+
+if choice == '1':
+    c = float(input("Enter temperature in Celsius: "))
+    print(f"{c}°C = {temp_converter.celsius_to_fahrenheit(c):.2f}°F")
+elif choice == '2':
+    f = float(input("Enter temperature in Fahrenheit: "))
+    print(f"{f}°F = {temp_converter.fahrenheit_to_celsius(f):.2f}°C")
+else:
+    print("Invalid choice")
+
+
+
+
+2.	Simple Calculator: Create a simple calculator program that can perform basic arithmetic operations such as addition, subtraction, multiplication, and division. Implement each operation in separate functions within a custom module.
+
+
+calculator.py
+
+def add(x, y): return x + y
+def subtract(x, y): return x - y
+def multiply(x, y): return x * y
+def divide(x, y): return x / y if y != 0 else "Cannot divide by zero"
+
+
+main.py
+
+# Simple Calculator using Custom Module
+
+import calculator
+
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+op = input("Enter operation (+, -, *, /): ")
+
+if op == '+':
+    print("Result:", calculator.add(a, b))
+elif op == '-':
+    print("Result:", calculator.subtract(a, b))
+elif op == '*':
+    print("Result:", calculator.multiply(a, b))
+elif op == '/':
+    print("Result:", calculator.divide(a, b))
+else:
+    print("Invalid operation")
+
+
+3.	Todo List Manager: Develop a todo list manager program that allows users to add, delete, and view tasks. Use a custom module to handle the todo list operations.
+
+
+todo.py
+
+tasks = []
+
+def add_task(task):
+    tasks.append(task)
+
+def delete_task(index):
+    if 0 <= index < len(tasks):
+        tasks.pop(index)
+    else:
+        print("Invalid index")
+
+def view_tasks():
+    if tasks:
+        for i, task in enumerate(tasks):
+            print(f"{i+1}. {task}")
+    else:
+        print("No tasks.")
+
+
+
+main.py
+
+# Todo List Manager using Custom Module
+
+import todo
+
+while True:
+    print("\n1. Add Task\n2. Delete Task\n3. View Tasks\n4. Exit")
+    choice = input("Choose: ")
+
+    if choice == '1':
+        task = input("Enter task: ")
+        todo.add_task(task)
+    elif choice == '2':
+        todo.view_tasks()
+        idx = int(input("Enter task number to delete: ")) - 1
+        todo.delete_task(idx)
+    elif choice == '3':
+        todo.view_tasks()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice.")
+
+ 
+4.   File Organizer to create folders based on file formats to organize efficiently ...
+
+    File Organizer: Write a Python script that organizes files in a directory based on their file extensions. Use the os module for file operations.
+
+# File Organizer Using os Module
+
+import os
+import shutil
+
+def organize_files(folder_path):
+    for file in os.listdir(folder_path):
+        filename, ext = os.path.splitext(file)
+        ext = ext[1:]  # remove dot
+
+        if ext:  # ignore files with no extension
+            ext_folder = os.path.join(folder_path, ext)
+            if not os.path.exists(ext_folder):
+                os.makedirs(ext_folder)
+
+            shutil.move(os.path.join(folder_path, file), os.path.join(ext_folder, file))
+
+folder = input("Enter folder path to organize: ")
+organize_files(folder)
+print("Files organized successfully.")
+
+
+=============================================================================================
+
+
+
+5.  Password Generator: Create a password generator program that generates random passwords of a specified length. Use the random module for generating random characters.
+
+import random
+import string
+
+def generate_password(length):
+    if length < 4:
+        return "Password too short"
+
+    chars = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choices(chars, k=length))
+    return password
+
+length = int(input("Enter password length: "))
+print("Generated Password:", generate_password(length))
+
+
+6. Text Analyzer: Build a program that analyzes a text file and calculates statistics such as word count, character count, and average word length. Utilize the collections module for efficient counting.
+
+# Text Analyzer Using collections
+
+from collections import Counter
+
+def analyze_text(file_path):
+    with open(file_path, 'r') as file:
+        text = file.read()
+
+    words = text.split()
+    characters = list(text.replace(" ", "").replace("\n", ""))
+    
+    word_count = len(words)
+    char_count = len(characters)
+    avg_word_length = char_count / word_count if word_count else 0
+    word_freq = Counter(words)
+
+    print(f"Word Count: {word_count}")
+    print(f"Character Count (excluding spaces): {char_count}")
+    print(f"Average Word Length: {avg_word_length:.2f}")
+    print("\nTop 5 Most Common Words:")
+    for word, freq in word_freq.most_common(5):
+        print(f"{word}: {freq}")
+
+#  Call the function here
+analyze_text("sample.txt")
+
+
+7.  Bank Account Manager: Implement a bank account manager program that allows users to create accounts, deposit funds, withdraw funds, and view account balances. Use a custom module to handle account operations.
+
+>> Create a bank_account module and then main.py to import the defined module ......
+
+
+bank_account :
+
+accounts = {}
+
+def create_account(name):
+    accounts[name] = 0
+
+def deposit(name, amount):
+    if name in accounts:
+        accounts[name] += amount
+
+def withdraw(name, amount):
+    if name in accounts and accounts[name] >= amount:
+        accounts[name] -= amount
+    else:
+        print("Insufficient funds or account not found.")
+
+def get_balance(name):
+    return accounts.get(name, "Account not found.")
+
+
+
+main.py >>
+
+import bank
+
+while True:
+    print("\n1. Create Account\n2. Deposit\n3. Withdraw\n4. View Balance\n5. Exit")
+    choice = input("Choose: ")
+
+    if choice == '1':
+        name = input("Enter account holder name: ")
+        bank.create_account(name)
+    elif choice == '2':
+        name = input("Name: ")
+        amount = float(input("Amount to deposit: "))
+        bank.deposit(name, amount)
+    elif choice == '3':
+        name = input("Name: ")
+        amount = float(input("Amount to withdraw: "))
+        bank.withdraw(name, amount)
+    elif choice == '4':
+        name = input("Name: ")
+        print("Balance:", bank.get_balance(name))
+    elif choice == '5':
+        break
+    else:
+        print("Invalid choice.")
+
+
+
+
+
+Python Functions - https://docs.python.org/3/library/functions.html
+
+Python Modules - https://docs.python.org/3/py-modindex.html
+
+
+
+
+8.   Simple Chatbot: Build a simple chatbot program that responds to user input with predefined responses. Use the random module to randomize responses.
+
+
+import random
+
+responses = {
+    "hi": ["Hello!", "Hey there!", "Hi! How can I help you?"],
+    "how are you": ["I'm just a bunch of code, but I'm fine!", "Doing great!", "Running smoothly!"],
+    "bye": ["Goodbye!", "See you later!", "Bye! Have a great day!"],
+    "default": ["Sorry, I didn't understand that.", "Can you rephrase?", "I'm not sure how to respond."]
+}
+
+def get_response(user_input):
+    user_input = user_input.lower()
+    return random.choice(responses.get(user_input, responses["default"]))
+
+while True:
+    msg = input("You: ")
+    if msg.lower() == "exit":
+        print("Chatbot: Goodbye!")
+        break
+    print("Chatbot:", get_response(msg))
+
+
+
+9. Create a Quiz based AI like prompt by using same logic as mentioned in the chatbot ...
+
+==============================================================================================
+
+
+Connection with RDMS (locally) with PSQL :
+
+
+Program to make connection with Psql :
+
+import psycopg2
+
+# Establish connection
+conn = psycopg2.connect(
+    dbname="python",
+    user="postgres",
+    password="ajit1234",
+    host="localhost",
+    port="5432"
+)
+cursor = conn.cursor()
+
+# Create table
+cursor.execute('''CREATE TABLE IF NOT EXISTS stocks
+                  (date DATE, symbol VARCHAR(10), price FLOAT)''')
+
+# Insert a row of data
+cursor.execute("INSERT INTO stocks VALUES ('2024-03-19', 'AAPL', 200.0)")
+
+# Commit the transaction
+conn.commit()
+
+# Fetch data
+cursor.execute("SELECT * FROM stocks")
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+
+# Close connection
+conn.close()
+
+
+Connection with RDMS (locally)  with MySQL :
+
+Steps to work on Mysql DB:
+
+
+
+>> pip install mysql-connector-python OR pip install pymysql
+
+(You can replace mysql-connector with pymysql if it's not working)
+
+(install library in python terminal)
+
+
+import mysql.connector
+
+# Establish connection
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",           # Change if your MySQL user is different
+    password="ajit1234",
+    database="python"      # Make sure this DB exists
+)
+
+cursor = conn.cursor()
+
+# Create table
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS stocks (
+        date DATE,
+        symbol VARCHAR(10),
+        price FLOAT
+    )
+''')
+
+# Insert a row of data
+cursor.execute("INSERT INTO stocks (date, symbol, price) VALUES (%s, %s, %s)",
+               ('2024-03-19', 'AAPL', 200.0))
+
+# Commit the transaction
+conn.commit()
+
+# Fetch data
+cursor.execute("SELECT * FROM stocks")
+rows = cursor.fetchall()
+for row in rows:
+    print(row)
+
+# Close connection
+conn.close()
+
+
+-- Login to MySQL CLI
+mysql -u root -p
+
+
+Use Exception Handling :
+
+
+try:
+    # Establish connection
+    conn = psycopg2.connect(
+        dbname="python",
+        user="postgres",
+        password="ajit1234",
+        host="localhost",
+        port="5432"
+    )
+
+    # Create a cursor
+    cursor = conn.cursor()
+
+    # Execute a query
+    cursor.execute("SELECT version();")
+
+    # Fetch the result
+    record = cursor.fetchone()
+    print("You are connected to - ", record)
+
+except (Exception, psycopg2.Error) as error:
+    print("Error while connecting to PostgreSQL", error)
+
+finally:
+    # Close the cursor and connection
+    if conn:
+        cursor.close()
+        conn.close()
+        print("PostgreSQL connection is closed")
+
+Use this command :
+
+py -m pip install mysql-connector-python 
+
+
+===============================================================================
+
+
+Connect your python prog with cloud RDBMS (MySQL) :
+
+1. create a VM :
+
+SSH : sudo apt update
+
+         sudo apt install mysql-server
+
+        mysql --version
+
+       sudo mysql -u root -p
+
+       prompt to pswd :
+
+
+open this file using -- sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+change the bind-address to 0.0.0.0
+
+(To accept connections from anywhere or a spefic ip address)
+
+ sudo systemctl restart mysql
+
+
+mysql -u root -p 
+
+mysql >>
+
+
+https://www.cloudskillsboost.google/  -- Create a VM LAB ..
+
+ 
+mysql -u root -p -h 18.222.29.180
+
+
+
+
+
+
+3 steps :  1. Loginto remote mysql-server using MYSQL workbench
+
+                2. Create a db with your name
+
+                3. Execute the python prog to insert table and data to remote mysql server 
+
+
+Test your connection with DB first (locally or remotely) :
+
+import mysql.connector
+from mysql.connector import Error
+
+def test_mysql_connection():
+    conn = None  # Initialize conn variable outside try block
+    try:
+        # Establish connection
+        conn = mysql.connector.connect(
+            host="18.222.29.180",  # Your cloud MySQL server IP address
+            user="root",           # MySQL username (use your actual username)
+            password="ajit1234"    # MySQL password (use your actual password)
+        )
+
+        # Check if connection was successful
+        if conn.is_connected():
+            print("Successfully connected to MySQL server")
+        else:
+            print("Failed to connect to MySQL server")
+
+    except Error as e:
+        print(f"Error: {e}")
+
+    finally:
+        # Close the connection if it was successful
+        if conn is not None and conn.is_connected():
+            conn.close()
+            print("Connection closed.")
+
+# Run the connection test
+test_mysql_connection()
+
+
+Once it's tested successfully then execute :
+
+import mysql.connector
+from mysql.connector import Error
+
+conn = None  # Initialize conn variable outside try block
+
+try:
+    # Establish connection
+    conn = mysql.connector.connect(
+        host="18.222.29.180",
+        user="root",           # Change if your MySQL user is different
+        password="ajit1234",
+        database="python11"    # Make sure this DB exists
+    )
+
+    if conn.is_connected():
+        print("Connected to the database")
+
+        cursor = conn.cursor()
+
+        # Create table
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS stocks (
+                date DATE,
+                symbol VARCHAR(10),
+                price FLOAT
+            )
+        ''')
+
+        # Insert a row of data
+        cursor.execute("INSERT INTO stocks (date, symbol, price) VALUES (%s, %s, %s)",
+                       ('2024-03-19', 'AAPL', 200.0))
+
+        # Commit the transaction
+        conn.commit()
+
+        # Fetch data
+        cursor.execute("SELECT * FROM stocks")
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
+
+except Error as e:
+    print(f"Error: {e}")
+
+finally:
+    # Close connection if it was created
+    if conn is not None and conn.is_connected():
+        conn.close()
+        print("Connection closed.")
+
+===================================================================
+
+Troubleshooting steps :
+
+
+1. mysql-connector / pymsql  >> pip install ...............
+
+2. ssh_caching  error  ....... upgrade the library/package (pip install --upgrade mysql-connector-python)
+
+3. VM -- SSH -- installed mysq -- mysql root user+pswd ---  mysql db
+
+4. VM -- accept the traafic port 3306 (firewall)
+
+5. Making changes in mysql config file -- sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+
+  (change the bind address from localhost to 0.0.0.0)
+
+6. Restart mysql-server after making change sin the config file -- sudo systemctl restart mysql
+
+7. If you want to create a new user and work on, you can use follow :
+
+CREATE USER 'ajit'@'%' IDENTIFIED BY 'ajit1234';
+GRANT ALL PRIVILEGES ON *.* TO 'ajit'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+
+OR
+
+8. If you want to use root user to create db and inser data, you need to update :
+
+UPDATE mysql.user SET host = '%' WHERE user = 'root' AND host = 'localhost';
+FLUSH PRIVILEGES;
+
+
+9. If you wan to check/test Remote Mysql-server connection from windows cmd or cloudshell :
+
+>> mysql -u root -p -h <your_mysql_ip> -P 3306
+
+10. Execute the python program to insert data in tables to your db on remote mysql-server ..
+
+===================================================================================
+
 
