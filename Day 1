@@ -1,30 +1,251 @@
-1. Declare and print name and age
+1. Declare and print name and age :==
 
-2. Find the data type of a variable  - print(type(x))
+Solution --
 
-3. Swap two variables (without a third variable) 
 
-4. Convert a string number to int and add  - 
+# Declare and print name and age
 
-5. Check if a number is integer or float
+name = "Ajit Singh"
+age = 30
+print(name,age)
 
-6. Take user input and print greeting
 
-7. Input two numbers and print their sum
+# Declare and print name and age using f-string
 
-8. Print name and age using formatted string
+name = "Ajit Singh"
+age = 30
+print(f"{name} \n {age}")
 
-9. Take a string input and print its reverse
+2. Find the data type of a variable  - print(type(x)) :==
 
-10. Calculate area of a rectangle
+Solution --
 
-11. Simple interest calculator
 
-12. Find the remainder using modulus operator
+# Find the data type of a variable
 
-13. Check if number is even or odd
+x = 11
+print(type(x))
 
-14. Calculate square and cube of a number
+x = 5.5
+print(type(x))
+
+x = "hello"
+print(type(x))
+
+
+3. Swap two variables (without a third variable) :==
+
+Solution --
+
+
+# Swap two variables (without a third variable)
+
+a = 10
+b = 20
+a, b = b, a
+print(a, b)
+
+
+# Swap Three Variables (Circular Swap)
+
+a = 1
+b = 2
+c = 3
+a, b, c = c, a, b
+print(a, b, c)  
+
+
+# Swap Boolean Values
+
+x = True
+y = False
+x, y = y, x
+print(x, y)  
+
+
+# Swap Two Strings
+
+x = "hello"
+y = "world"
+x, y = y, x
+print(x, y) 
+
+
+# Swap Elements in a List
+
+lst = [10, 20, 30, 40]
+lst[0], lst[2] = lst[2], lst[0]
+print(lst)  
+
+
+
+4. Convert a string number to int and add  :==
+
+Solution --
+
+
+# Convert a string number to int and add
+
+num = "15"
+result = int(num) + 5
+print(result) 
+
+# Convert float string to float
+
+price = "99.99"
+final_price = float(price) + 10
+print(final_price)
+
+
+# Convert integer to string and concatenate
+
+age = 25
+msg = "Age: " + str(age)
+print(msg) 
+
+
+# Convert boolean to integer
+
+flag = True
+value = int(flag) + 4
+print(value) 
+
+
+# Convert float to int (removes decimal part)
+
+score = 92.7
+rounded = int(score)
+print(rounded)
+
+
+# Convert user input (string) to integer
+
+user_input = input("Enter a number: ") 
+result = int(user_input) * 2
+print(result)
+
+
+5. Check if a number is integer or float :==
+
+Solution --
+
+
+# Check if a number is integer or float
+
+x = 5.5
+print(isinstance(x, int))   # False
+print(isinstance(x, float)) # True
+
+
+
+6. Take user input and print greeting :==
+
+Solution --
+
+
+# Take user input and print greeting
+
+name = input("Enter your name: ")
+print("Hello", name)
+
+
+7. Input two numbers and print their sum :==
+
+Solution --
+
+
+# Input two numbers and print their sum
+
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+print("Sum is", a + b)
+
+
+8. Print name and age using formatted string :==
+
+Solution --
+
+
+# Print name and age using formatted string
+
+name = "Ajit Singh"
+age = 30
+
+print(f"My name is {name} and I am {age} years old.")
+
+
+9. Take a string input and print its reverse :==
+
+Solution --
+
+
+# Take a string input and print its reverse
+
+s = input("Enter a string: ")
+print(s[::-1])
+
+
+10. Calculate area of a rectangle :==
+
+Solution --
+
+
+# Calculate area of a rectangle
+
+length = float(input("Length: "))
+width = float(input("Width: "))
+area = length * width
+print("Area:", area)
+
+
+11. Simple interest calculator :==
+
+Solution --
+
+
+# Simple interest calculator
+
+
+p = float(input("Principal: "))
+r = float(input("Rate: "))
+t = float(input("Time: "))
+si = (p * r * t) / 100
+print("Simple Interest:", si)
+
+
+12. Find the remainder using modulus operator :==
+
+Solution --
+
+
+# Find the remainder using modulus operator
+
+a = 15
+b = 4
+print("Remainder:", a % b)
+
+
+13. Check if number is even or odd :==
+
+Solution --
+
+
+# Check if number is even or odd
+
+num = int(input("Enter a number: "))
+print("Even" if num % 2 == 0 else "Odd")
+
+
+14. Calculate square and cube of a number :==
+
+Solution --
+
+
+# Calculate square and cube of a number
+
+n = int(input("Enter a number: "))
+print("Square:", n**2)
+print("Cube:", n**3)
 
 
 15. Write a program on if, 
@@ -35,3 +256,61 @@ if -> elseif -> else,
 
 nested if
 
+=====================================================================================================================================================
+
+
+
+what is cloud ??
+
+on-prem  >> staff, purchase, maintain,  OPex
+
+cloud -- aws 
+
+mumbai - region >> three zones (AZ)
+
+Each zone -- two and more DC
+
+HA and DR
+
+
+N. Virginia (us-east-1)  -- six zones
+
+
+less utilization
+
+TCO
+
+
+pay-as-you-go   or   on-demand
+
+Reserved (1y or 3y)
+
+per second billing 
+
+ec2 - spot instances -- bidding
+
+
+Public, Private and Hybrid
+
+
+IaaS , PaaS - RDS , SaaS  s3 bucket
+
+aws lambda -- serverless
+
+
+auto-scaling  >> condition (avg cpu > 75%) + 1 vm (instance template)
+
+min = 1 max = 5
+
+
+scale-in  controls
+
+condition avg cpu <   50  decrese 1 VM
+
+
+Scalabilty --
+
+scale out
+
+
+=================================================================================
