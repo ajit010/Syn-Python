@@ -1,0 +1,398 @@
+Read and Write files from Python:
+
+
+1. # Write to a File
+
+# Write a string to a file.
+
+file = open("output.txt", "w")
+file.write("Hello, this is Day 6 of training.\n")
+file.close()
+
+
+
+2. # Read from a File
+
+# Read and print the content of a file.
+
+
+file = open("output.txt", "r")
+content = file.read()
+print(content)
+file.close()
+
+
+3. # Append to a File
+
+# Add content to an existing file.
+
+file = open("output.txt", "a")
+file.write("Appending third line.\n")
+file.close()
+
+
+
+
+4.  # Structured Data – Read Student Records
+
+# Read structured student records from a text file.
+
+with open("students.txt", "r") as f:
+    for line in f:
+        name, age, grade = line.strip().split(',')
+        print(f"Name: {name}, Age: {age}, Grade: {grade}")
+
+
+
+5. # Exception Handling – Divide by Zero
+
+# Handle division by zero error.
+
+try:
+    a = int(input("Enter numerator: "))
+    b = int(input("Enter denominator: "))
+    print("Result:", a / b)
+except ZeroDivisionError:
+    print("Error: Division by zero is not allowed.")
+
+
+
+6. # Handle FileNotFoundError
+
+# Open a non-existent file and handle error.
+
+try:
+    with open("non_existing.txt", "r") as f:
+        print(f.read())
+except FileNotFoundError:
+    print("File not found. Please check the path.")
+
+
+
+7. # Multiple Exception Handling
+
+# Handle multiple error types.
+
+try:
+    num = int(input("Enter a number: "))
+    print(100 / num)
+except ValueError:
+    print("Please enter a valid number.")
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+
+
+
+8. # Custom Exception Raise
+
+# Raise an exception manually.
+
+age = int(input("Enter your age: "))
+if age < 0:
+    raise ValueError("Age cannot be negative.")
+else:
+    print("Age is valid.")
+
+
+
+9. # Writing to a CSV File
+
+# Write structured student data to a CSV file using csv.writer.
+
+import csv
+
+data = [
+    ['Name', 'Age', 'Grade'],
+    ['Ajit', 21, 'A'],
+    ['Ravi', 22, 'B']
+]
+
+with open("students.csv", "w", newline='') as f:
+    writer = csv.writer(f)
+    writer.writerows(data)
+
+
+
+10. # Reading from a CSV File
+
+# Read a CSV file using csv.reader
+
+import csv
+
+with open("students.csv", "r") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)
+
+
+
+11. # Student Management App with File Storage
+
+# Add and retrieve student data from a CSV file.
+
+import csv
+
+def add_student():
+    name = input("Name: ")
+    age = input("Age: ")
+    grade = input("Grade: ")
+    with open("students.csv", "a", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([name, age, grade])
+    print("Student added.")
+
+def display_students():
+    print("Students:")
+    with open("students.csv", "r") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            print(row)
+
+while True:
+    print("\n1. Add Student  2. View All  3. Exit")
+    choice = input("Enter choice: ")
+    if choice == '1':
+        add_student()
+    elif choice == '2':
+        display_students()
+    else:
+        break
+
+
+=========================================================================================================
+
+Google Colab : colab.research.google.com
+
+Link to Notebooks -- https://github.com/ajit010/Python_Fundamentals.git
+
+
+Explore these notebooks by importing them onto google colab
+
+Run cells one-by-one (Shift+Enter) to execute
+
+==========================================================================================================
+
+
+Machine Learning Algorithms :
+
+
+1. Linear Regression  -- Regression 
+
+2. Logistic Regression  -- Classification
+
+knn
+
+>> Code for Prediction of Salary  :
+
+from sklearn.linear_model import LinearRegression
+import numpy as np
+
+# Dummy data
+X = np.array([[1], [2], [3], [4]])  # Feature: years of experience
+y = np.array([40000, 50000, 60000, 70000])  # Target: salary
+
+model = LinearRegression().fit(X, y)
+print("Predicted salary for 5 years:", model.predict([[5]]))
+
+=============================================================================
+Website -- https://www.kaggle.com/
+=============================================================================
+
+
+https://colab.research.google.com/drive/1-q3IoWDmWTZO0nE5sk6r6zGwtXpAPVd6?usp=sharing
+
+
+
+1.  Line Chart :
+
+# Simple Line Graph
+
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 7]
+
+plt.plot(x, y)
+plt.title("Simple Line Plot")
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.grid(True)
+plt.show()
+
+
+Exercise :  Plot the average monthly temperature of your city over 12 months.
+
+Input data :
+
+Logic then Print 
+
+
+Exercise :  Visualize the height and weight of 15 students.  ( Use Scatter)
+
+Exercise : Create a Bar-graph chart of 5 different students 
+
+
+2. Pie Chart :
+
+# Pie Chart
+
+# Display the market share of 4 smartphone brands.
+
+
+brands = ['Samsung', 'Apple', 'Xiaomi', 'Others']
+shares = [30, 25, 20, 25]
+
+# Create a pie chart with percentage labels
+
+import matplotlib.pyplot as plt
+
+plt.pie(shares, labels=brands, autopct='%1.1f%%', startangle=140)
+plt.title("Smartphone Market Share")
+plt.axis('equal')  # Equal aspect ratio ensures a circle
+plt.show()
+
+
+
+Exercise :  Display set of Cloud Providers in a pie chart
+
+                  Display market share of Automobile brands in pie chart
+
+
+
+3. # Histogram
+
+# Analyze the distribution of scores in a test.
+
+scores = [55, 60, 65, 65, 70, 72, 75, 78, 80, 85, 85, 85, 88, 90, 92, 95, 95, 100]
+
+# Create a histogram with 5 bins
+
+import matplotlib.pyplot as plt
+
+plt.hist(scores, bins=5, color='orange', edgecolor='black')
+plt.title("Distribution of Test Scores")
+plt.xlabel("Score Range")
+plt.ylabel("Number of Students")
+plt.grid(True)
+plt.show()
+
+
+4. To save plot to a file:
+
+# Save Plot to File
+
+# Save your plot to a PNG or PDF file.
+
+import matplotlib.pyplot as plt
+
+# Example: Save line plot of weekly sales
+days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+sales = [250, 300, 260, 400, 410, 500, 480]
+
+plt.plot(days, sales, marker='o', color='darkred')
+plt.title("Weekly Sales")
+plt.xlabel("Day")
+plt.ylabel("Sales (Rs)")
+plt.grid(True)
+
+# Save to file
+plt.savefig("weekly_sales.png")  # or plt.savefig("weekly_sales.pdf")
+plt.show()
+
+
+
+Exercise : create a couple of weather forecasting and gold price prediction and save it to a file ...
+
+
+5. # Title, Labels, and Grid
+
+# Improve any one of your previous charts by adding:
+
+# A title
+
+# X and Y axis labels
+
+# Grid
+
+
+courses = ['Python', 'Java', 'C++', 'Data Science', 'AI']
+students = [50, 40, 35, 60, 30]
+
+
+# Use plt.title(), plt.xlabel(), plt.ylabel(), plt.grid(True)
+# Example improvement for the bar chart
+
+
+import matplotlib.pyplot as plt
+
+plt.bar(courses, students, color='purple')
+plt.title("Improved: Students per Course")
+plt.xlabel("Course Name")
+plt.ylabel("Enrollment")
+plt.grid(axis='y')
+plt.show()
+
+
+================================================================================================
+
+
+
+Linear Regression : Salary Dataset Notebook --
+
+https://www.kaggle.com/code/shubham47/linear-regression-salary-dataset/
+
+https://colab.research.google.com/drive/1j34pkF87BGr9z_oFSkTrUVIHBLpDdNzx?usp=sharing
+
+Use this link to execute Salary Dataset :
+
+Now use these 2 notebooks to use two different datasets from code of 1st notebook by making modifications :
+ Dataset1  and Dataset 2 can be downloaded from kaggle ..
+
+Dataset 1 - delhi air pollution (https://www.kaggle.com/datasets/kunshbhatia/delhi-air-quality-dataset)
+
+Dataset 2 -  Gold price 2025 (https://www.kaggle.com/datasets/willianoliveiragibin/gold-price-2025)
+
+
+
+Dataset 1 NB -- https://colab.research.google.com/drive/19L2TR8OAsDJ5NGny8J_Dg5cTTCejuqDt?usp=sharing
+
+Dataset 2 NB-- https://colab.research.google.com/drive/1lmRyHxiQ6f8WZ4KvNMOOUDFziQorlGQV?usp=sharing
+
+Performs basic EDA (Exploratory Data Analysis), Shows a correlation heatmap (like the Kaggle salary regression notebook), 
+Sets up for linear regression (predicting values),  Perform Line graph, Bar Graph, Histogram scatter values etc.
+
+==============================================================================================================
+
+
+Logistic Regression -- User data.csv
+
+https://www.kaggle.com/code/sandragracenelson/logistic-regression-on-user-data-csv/notebook
+
+Demo Logistic regression (User Data Product) : 
+
+ https://colab.research.google.com/drive/1OIwQ6B0Fb20gCc6nNwJWj0qxuOxHGPza?usp=sharing
+
+
+
+Heart Disease Dataset -- https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
+
+(Contains data about health and lifestyle attributes for individuals)
+
+Predict whether someone will develop coronary heart disease within 10 years.
+
+
+Titanic Dataset  -- https://www.kaggle.com/datasets/yasserh/titanic-dataset
+
+
+(Contains data about age,sex,profession,health etc about user)
+
+Predict whether the passanger will survive or not
+
+
+Dataset 3 NB -- https://colab.research.google.com/drive/1AZ91fLkIwLJUlRo8HW0xHj3TwAGCKL-U?usp=sharing
+
+Dataset 4 NB -- https://colab.research.google.com/drive/1-7NjViWpV4Oi0LRSkbY4yNTGSFVUKiic?usp=sharing
+
+==================================================================================================================
+
+
