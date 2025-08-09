@@ -1,1 +1,50 @@
+DAY 8 :
+
+
+GCP - Cloudkskillboost LABs -- ML models training and evaluation :
+
+1. Exploratory Data Analysis using Bigquery and Colab Enterprise
+
+2. Exploratory Data Analysis using Bigquery and Workbench Instances
+
+
+Work on both of these GCP LABs ...
+
+https://www.cloudskillsboost.google/course_templates/739/labs/556978
+
+((Course - Intro to ML Image Processing))
+
+1. Speech-to-Text API: Qwik Start
+
+2. Classify Images of Clouds in the Cloud with AutoML Images
+
+3. Detect Labels, Faces, and Landmarks in Images with the Cloud Vision API
+
+4. Extract, Analyze, and Translate Text from Images with the Cloud ML APIs
+
+
+===========================================================================================
+
+
+Voter application -- https://github.com/ajit010/Voter-application
+
+Voter application -- https://github.com/ajit010/Voter-application
+
+
+IN LAB No. 3 -- Task to upload donut.png , if it's not working by GUI
+
+use cloudshell to first upload the file and transfer to GCS (Bucket) using command :
+
+(In Cloudshell, you need to upload using three dots symbol on right side of terminal)
+
+gsutil cp donut.png gs://(name-of-your-bucket)/
+
+================================================================================================
+
+Upload your Day1-Day7 work and Assignments by end of Aug 9th ...
+
+Link-- (https://techlanderssolutions-my.sharepoint.com/:f:/g/personal/ajit_singh_techlanders_com/Etj_B1zEyAtGlmtyBXlGIakBUWhObnw5bS5gNYrSp39LFw)
+
+=================================================================================================
+
 
