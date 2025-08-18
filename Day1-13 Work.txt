@@ -1,0 +1,158 @@
+Daily Activities and Assigmnents (Day1-13)
+
+Day 1 -- 15 basic python programs (using print statemnt, variables, data types)
+
+Day 2 -- 30+ programs using data-types, logical operators, if-else, for-while loops,  functions,    project -- 1 (mini calculator)   , project -- 2 (ATM simulation)
+
+Day 3 -- 10 programs using modules + RDBMS connection with python
+
+DAY 4 -- 10 Programs on classes and objects + 5 programs on OOPS principles..
+
+DAY 5 --  Cloudskillboost LAB completed on :
+
+         > VPC Networking Fundamentals
+
+         > VPC Network Peering
+
+         > App Engine - Qwik Start - Python
+
+         > App Dev : Setting up a Dev Env - Python
+
+
+2 Projects -- Employee Mgmt System + Online Shopping System
+
+
+DAY 6 -- Created AWS account + IAM user + ec2 server + ebs volume (attach/detach)
+
+         > RDBMS connectivity with python prog over cloud ec2 sever
+
+         > 15+ programs on Data Structure of Python
+
+         > 10+ programs on Read, Write, Append in csv, json files + exception handling
+
+
+
+DAY 7 -- Collab Notebooks 
+
+        > Python Data Structure Notebook
+        > Numpy, Pandas, Matplotlib, Seaborn Notebooks
+        > Linear Regression - Prediction of Salary
+        > Line Chart, Pie Chart, Histogram, Label, Grid programs/notebook
+
+        > Salary Dataset Notebook using Linear Regreesion
+
+        > Apply same on Delhi Air pollution NB, Gold Price NB with EDA
+
+        > Logistic Regression on User Data product NB
+
+        > Apply same on Heart Disease NB and Titanic Dataset NB
+
+
+
+DAY 8 --  GCP Cloudskillboost Labs on ML models training :
+
+        > Exploratory Data Analysis using Bigquery and Colab Enterprise
+
+        > Exploratory Data Analysis using Bigquery and Workbench Instances
+
+        Image Processing using ML models LABs :
+
+        > Speech-to-Text API: Qwik Start
+
+        > Classify Images of Clouds in the Cloud with AutoML Images
+
+        > Detect Labels, Faces, and Landmarks in Images with the Cloud Vision API
+
+        > Extract, Analyze, and Translate Text from Images with the Cloud ML APIs
+
+
+DAY 9 --  GCP Cloudskillboost LABs (Tensorflow/Keras using NN, CNN, RNN):
+
+        > TensorFlow: Qwik Start
+
+        > Introduction to  Computer Vision with TensorFlow
+
+        > Introduction to Convolutions with TensorFlow
+
+        > Setting Up Cost Control with Quota
+
+          Auto Scaler + Load Balancer :
+ 
+        > Autoscaling an Instance Group with Custom Cloud Monitoring Metrics
+
+        > Application Load Balancer with Cloud Armor
+
+
+
+DAY 10 -- AWS LABs
+
+        > LAB on AWS CLI (creating accesskeys, checking s3 buckets list etc)
+   
+        > Creating and Deleting s3 buckets using CLI
+
+        > Looking changes into AWS Console as well ...
+
+        AI LABs (GCP Cloudskillboost):
+
+        > Predict Taxi Fare with a BigQuery ML Forecasting Model
+
+        > Fraud Detection on Financial Transactions with Machine Learning on Google Cloud
+
+        > Optical Character Recognition (OCR) with Document AI (Python)
+
+        > Create a Component Anomaly Detection Model using Visual Inspection AI
+
+        > Optimizing Cost with Google Cloud Storage
+
+
+
+DAY 11 -- AWS LABs 
+
+        > Creating a VPC, Subnets, Route Table, Internet Gateway
+
+        > Creating a new ec2 instance from new created VPC
+
+        > CReating a Launch template and Auto scaling group
+
+        > Attaching a Load Balncee with target group ...
+
+
+
+DAY 12 -- AWS LABs :
+
+        > Creating instances from AWS CLI
+
+        > Creating a private subnet and NAT Gateway LAB.
+
+          GCP LABs (Gen AI - Prompt Engineering):
+
+        > Generative AI with Vertex AI: Prompt Design
+
+        > Use Vertex AI Studio for Healthcare
+
+        > Develop an App with the Vertex AI Gemini API
+
+
+
+DAY 13 -- AWS LABs :
+
+        > Create a Windows ec2 instance, RDP and attach data drives in VM
+
+        > Change the default IIS web server page to custom index page
+
+        > EFS LAB and S3 LAB
+
+          GCP LAB :
+
+        > Deploying a Python Flask Web Application to App Engine Flexible
+
+
+==========================================================================================
+
+
+
+
+
+
+
+ 
