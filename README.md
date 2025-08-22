@@ -1,6 +1,6 @@
 Git and Github
 
-#Lab 1: Getting Started with Git & GitHub#
+#Lab# 1: Getting Started with Git & GitHub#
 
 Objective: Configure Git, create repo, and push to GitHub.
 
