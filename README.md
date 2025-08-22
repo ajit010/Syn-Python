@@ -1,6 +1,6 @@
 Git and Github
 
-#Lab# 1: Getting Started with Git & GitHub#
+**Lab 1: Getting Started with Git & GitHub**
 
 Objective: Configure Git, create repo, and push to GitHub.
 
@@ -24,7 +24,7 @@ git remote add origin https://github.com/<your-username>/git-lab.git
 git push -u origin main
 
 
-Lab 2: Working with Forks and Pull Requests
+**Lab 2: Working with Forks and Pull Requests**
 
 Objective: Practice contributing via fork model.
 
@@ -52,12 +52,11 @@ git push origin feature-update
 Open a Pull Request from your fork → upstream repo.
 
 
-Lab 3: Syncing Fork with Upstream Repo
+**Lab 3: Syncing Fork with Upstream Repo**
 
 Objective: Keep fork updated with main repo.
 
 Steps:
-
 
 Add upstream remote:
     
@@ -77,7 +76,7 @@ Push updates to your fork:
 git push origin main
 
 
-Lab 4: Branching, Rebasing & Conflict Resolution
+**Lab 4: Branching, Rebasing & Conflict Resolution**
 
 Objective: Learn feature branching and resolving conflicts.
 
@@ -143,7 +142,7 @@ Commit & push each branch.
 Open 3 linked PRs and reference them (e.g., "Depends on sample-api#12").
 
 
-Lab 4: Branching, Rebasing & Conflict Resolution
+**Lab 4: Branching, Rebasing & Conflict Resolution**
 
 Objective:
 Learn how branching works, what happens when two developers modify the same file, and how to resolve merge conflicts + use rebase.
